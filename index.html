@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SpaqiGames</title>
+<title>SpaqiGames – Funny Free Games for Android</title>
+<link rel="canonical" href="https://spaqigames.github.io/">
 <meta name="google-site-verification" content="j-Apx1YPnva8_5fV8zzVmreAzyXaPIuM7IVjF76_DSc">
-<meta name="description" content="Funny, gentle games for Android from SpaqiGames: fishing, wizards, frogs, tower defense, retro adventure and a capitals quiz.">
-<meta property="og:title" content="SpaqiGames">
+<meta name="description" content="Funny, gentle, free games for Android from indie studio SpaqiGames: a 3D fishing game, wizard adventures, a frog pet game for kids, tower defense, a retro action RPG and a state capitals quiz. All play offline.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SpaqiGames","url":"https://spaqigames.github.io/","logo":"https://spaqigames.github.io/img/favicon.png","email":"SpaqiGames@gmail.com","sameAs":["https://www.youtube.com/channel/UCo7da2hQ9MoqaId3OvBrw-Q","https://github.com/spaqigames"]}</script>
+<meta property="og:title" content="SpaqiGames – Funny Free Games for Android">
 <meta property="og:description" content="Funny, gentle games for Android: fishing, wizards, frogs, tower defense and more.">
 <meta property="og:image" content="https://spaqigames.github.io/img/header.jpg">
 <meta property="og:url" content="https://spaqigames.github.io/">
@@ -43,6 +45,7 @@ h2{margin:2rem 0 .3rem;font-size:1.5rem}
 .head{display:flex;gap:12px;align-items:center}
 .head img{width:56px;height:56px;border-radius:13px;flex:none}
 .head h3{margin:0;font-size:1.12rem;line-height:1.25}
+.head h3 a{color:inherit;text-decoration:none}.head h3 a:hover{text-decoration:underline}
 .tag{display:inline-block;margin-top:2px;font-size:.78rem;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--soon-bg);color:var(--soon)}
 .tag.live{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
 .body p{margin:0;color:var(--soft)}
@@ -74,6 +77,22 @@ footer ul{columns:2 220px;padding-left:1.1rem;margin:.4rem 0 1rem}
   <div class="grid" id="later"></div>
 
   <footer>
+    <strong>All games</strong>
+    <ul>
+      <li><a href="big-bass-chuck/">Big Bass Chuck</a></li>
+      <li><a href="wally/">Wally and the Wobblelands</a></li>
+      <li><a href="eldimir-keepers/">Eldimir: Keepers of the Light</a></li>
+      <li><a href="pip/">Pip &amp; the Mumblewood</a></li>
+      <li><a href="eldimir/">Eldimir &amp; Mossback</a></li>
+      <li><a href="lil-ribbit/">Lil' Ribbit</a></li>
+      <li><a href="lil-ribbit-2/">Lil' Ribbit 2</a></li>
+      <li><a href="capital-quest/">Capital Quest</a></li>
+      <li><a href="birdwatch/">Birdwatch</a></li>
+      <li><a href="frogeffects/">FrogEffects</a></li>
+      <li><a href="walkies/">Walkies</a></li>
+      <li><a href="kitchen-catastrophe/">Kitchen Catastrophe</a></li>
+      <li><a href="datewake/">DateWake</a></li>
+    </ul>
     <strong>Privacy policies</strong>
     <ul>
       <li><a href="wally/privacy.html">Wally and the Wobblelands</a></li>
@@ -136,7 +155,7 @@ for (const g of GAMES) {
   const play = g.status==="live"
     ? `<a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.spaqigames.${g.pkg}" target="_blank" rel="noopener">${PLAY_ICON}Get it on Google Play</a>`
     : `<span class="muted">${g.status==="soon"?"Play link coming in a few days.":"Not on Play yet."}</span>`;
-  el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3>${esc(g.name)}</h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}</div></div>`;
+  el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3><a href="${g.id}/">${esc(g.name)}</a></h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}<a class="muted" href="${g.id}/">More about ${esc(g.name)} →</a></div></div>`;
   document.getElementById(g.status).appendChild(el);
 }
 document.addEventListener("click",e=>{
