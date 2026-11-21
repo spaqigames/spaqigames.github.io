@@ -1,18 +1,151 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SpaqiGames</title>
-<style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem;line-height:1.6}</style></head>
-<body><h1>SpaqiGames</h1><p>Privacy policies for our apps:</p><ul>
-<li><a href="wally/privacy.html">Wally and the Wobblelands</a></li>
-<li><a href="pip/privacy.html">Pip &amp; the Mumblewood</a></li>
-<li><a href="lil-ribbit/privacy.html">Lil' Ribbit</a></li>
-<li><a href="lil-ribbit-2/privacy.html">Lil' Ribbit 2</a></li>
-<li><a href="frogeffects/privacy.html">FrogEffects</a></li>
-<li><a href="birdwatch/privacy.html">Birdwatch</a></li>
-<li><a href="datewake/privacy.html">DateWake</a></li>
-<li><a href="walkies/privacy.html">Walkies</a></li>
-<li><a href="big-bass-chuck/privacy.html">Big Bass Chuck</a></li>
-<li><a href="eldimir/privacy.html">Eldimir &amp; Mossback</a></li>
-<li><a href="eldimir-keepers/privacy.html">Eldimir: Keepers of the Light</a></li>
-<li><a href="kitchen-catastrophe/privacy.html">Kitchen Catastrophe</a></li>
-<li><a href="capital-quest/privacy.html">Capital Quest</a></li>
-</ul><p>Contact: <a href="mailto:SpaqiGames@gmail.com">SpaqiGames@gmail.com</a></p></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaqiGames</title>
+<meta name="description" content="Funny, gentle games for Android from SpaqiGames: fishing, wizards, frogs, tower defense, retro adventure and a capitals quiz.">
+<meta property="og:title" content="SpaqiGames">
+<meta property="og:description" content="Funny, gentle games for Android: fishing, wizards, frogs, tower defense and more.">
+<meta property="og:image" content="https://spaqigames.github.io/img/header.jpg">
+<meta property="og:url" content="https://spaqigames.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png">
+<style>
+:root{--bg:#f4f8f2;--card:#fff;--ink:#1d2a1f;--soft:#56655a;--line:#dbe5d8;--accent:#2f8f3a;--accent-ink:#fff;--soon:#b86b00;--soon-bg:#fff2dd;--yt:#d62828}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121714;--card:#1b221d;--ink:#e8efe8;--soft:#a3b2a6;--line:#2c3830;--accent:#4cb55a;--accent-ink:#08130a;--soon:#ffb24d;--soon-bg:#3a2a10}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.hero{position:relative;min-height:340px;display:flex;align-items:flex-end;background:#7cc3ef url(img/header.jpg) center 35%/cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05) 20%,rgba(0,0,0,.7)),linear-gradient(90deg,rgba(0,0,0,.35),transparent 60%)}
+.hero-in{position:relative;z-index:1;width:100%;max-width:1080px;margin:0 auto;padding:24px 16px;color:#fff}
+.hero h1{margin:0;font-size:clamp(2rem,6vw,3.2rem);letter-spacing:.5px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.hero p{margin:.2rem 0 1rem;font-size:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1rem;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
+.btn-play{background:var(--accent);color:var(--accent-ink)}
+.btn-yt{background:var(--yt);color:#fff}
+.btn svg{width:18px;height:18px;fill:currentColor}
+main{max-width:1080px;margin:0 auto;padding:8px 16px 40px}
+h2{margin:2rem 0 .3rem;font-size:1.5rem}
+.sub{margin:0 0 1rem;color:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:16px}
+.card:target{outline:3px solid var(--accent)}
+.vid{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;padding:0;width:100%;display:block}
+.vid img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.vid .pl{position:absolute;inset:0;margin:auto;width:68px;height:48px;border-radius:12px;background:var(--yt);display:grid;place-items:center}
+.vid .pl::after{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.vid iframe{width:100%;height:100%;border:0;display:block}
+.novid{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg,#cfe8c9,#a9d6f5);color:#1d2a1f;font-weight:600}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.head{display:flex;gap:12px;align-items:center}
+.head img{width:56px;height:56px;border-radius:13px;flex:none}
+.head h3{margin:0;font-size:1.12rem;line-height:1.25}
+.tag{display:inline-block;margin-top:2px;font-size:.78rem;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--soon-bg);color:var(--soon)}
+.tag.live{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.body p{margin:0;color:var(--soft)}
+.acts{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:4px}
+.muted{font-size:.9rem;color:var(--soft)}
+footer{border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1rem;font-size:.92rem;color:var(--soft)}
+footer ul{columns:2 220px;padding-left:1.1rem;margin:.4rem 0 1rem}
+@media (max-width:420px){.grid{grid-template-columns:1fr}.hero{min-height:300px;background-position:62% 30%}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <h1>SpaqiGames</h1>
+  <p>Funny, gentle games for Android. No accounts, and they all play offline.</p>
+  <a class="btn btn-yt" href="https://www.youtube.com/channel/UCo7da2hQ9MoqaId3OvBrw-Q?sub_confirmation=1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8ZM9.7 15.1V8.9l5.8 3.1Z"/></svg>Subscribe on YouTube</a>
+</div></header>
+
+<main>
+  <h2>Out now on Google Play</h2>
+  <p class="sub">Free to play, with one purchase to remove the ads.</p>
+  <div class="grid" id="live"></div>
+
+  <h2>Early access, coming in the next few days</h2>
+  <p class="sub">In review at Google Play now. Watch the trailers, and subscribe on YouTube to hear when they're out.</p>
+  <div class="grid" id="soon"></div>
+
+  <h2>In the works</h2>
+  <p class="sub">Finished games still in testing.</p>
+  <div class="grid" id="later"></div>
+
+  <footer>
+    <strong>Privacy policies</strong>
+    <ul>
+      <li><a href="wally/privacy.html">Wally and the Wobblelands</a></li>
+      <li><a href="pip/privacy.html">Pip &amp; the Mumblewood</a></li>
+      <li><a href="lil-ribbit/privacy.html">Lil' Ribbit</a></li>
+      <li><a href="lil-ribbit-2/privacy.html">Lil' Ribbit 2</a></li>
+      <li><a href="frogeffects/privacy.html">FrogEffects</a></li>
+      <li><a href="birdwatch/privacy.html">Birdwatch</a></li>
+      <li><a href="datewake/privacy.html">DateWake</a></li>
+      <li><a href="walkies/privacy.html">Walkies</a></li>
+      <li><a href="big-bass-chuck/privacy.html">Big Bass Chuck</a></li>
+      <li><a href="eldimir/privacy.html">Eldimir &amp; Mossback</a></li>
+      <li><a href="eldimir-keepers/privacy.html">Eldimir: Keepers of the Light</a></li>
+      <li><a href="kitchen-catastrophe/privacy.html">Kitchen Catastrophe</a></li>
+      <li><a href="capital-quest/privacy.html">Capital Quest</a></li>
+    </ul>
+    Contact: <a href="mailto:SpaqiGames@gmail.com">SpaqiGames@gmail.com</a> · <a href="https://www.youtube.com/channel/UCo7da2hQ9MoqaId3OvBrw-Q" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</main>
+
+<script>
+// status: "live" = public on Play, "soon" = early access in review, "later" = still testing.
+// When a game goes live, change its status to "live". The Play button appears automatically.
+const GAMES = [
+  {id:"big-bass-chuck", name:"Big Bass Chuck", pkg:"bigbasschuck", yt:"lF2-GQLeyz8", status:"live",
+   text:"Fish 250+ real places built from real maps, from Lake Erie to Loch Ness. Lake monsters, Sasquatch, and stories that are mostly true."},
+  {id:"wally", name:"Wally and the Wobblelands", pkg:"wally", yt:"Oy1qVvWPEck", status:"live",
+   text:"A 20-chapter side-scrolling quest of swords, spells and terrible toot jokes, in the classic style."},
+  {id:"eldimir-keepers", name:"Eldimir: Keepers of the Light", pkg:"eldimirkeepers", yt:"3RtMaeiSxco", status:"live",
+   text:"3D tower defense. Hold back the shadows with glowing towers, a wizard and a very good snail."},
+  {id:"pip", name:"Pip & the Mumblewood", pkg:"pipwizard", yt:"", status:"soon",
+   text:"A tiny apprentice wizard, 14 chapters of dungeons, daft bosses, five spells and a stolen moon."},
+  {id:"eldimir", name:"Eldimir & Mossback", pkg:"eldimir", yt:"nrk4Mkl9e9g", status:"soon",
+   text:"An old wizard and his dog-sized snail on a 3D quest to bring the light back to the forest."},
+  {id:"lil-ribbit", name:"Lil' Ribbit", pkg:"lilribbit", yt:"N5pKOyZUUV8", status:"soon",
+   text:"Hatch an egg, raise a tadpole and grow a very silly 3D frog of your own. Made for kids."},
+  {id:"lil-ribbit-2", name:"Lil' Ribbit 2", pkg:"lilribbit2", yt:"hKwjEPnQjnY", status:"soon",
+   text:"A giant 3D frog platformer: 10 worlds, 30 levels and 10 big silly bosses."},
+  {id:"capital-quest", name:"Capital Quest", pkg:"statesandcapitals", yt:"09aeS_hQgv0", status:"soon",
+   text:"Learn all 50 state capitals on a real map, then take on the world's capitals. Custom quizzes for teachers and parents."},
+  {id:"birdwatch", name:"Birdwatch", pkg:"birdwatch", yt:"dB8Uo4tG7xI", status:"later",
+   text:"Relax in 3D nature, find 62 real bird species and hear their real songs."},
+  {id:"frogeffects", name:"FrogEffects", pkg:"frogeffects", yt:"50kgJY3Cljk", status:"later",
+   text:"Meet 52 frogs and toads in 3D. Tap to learn facts and hear their real calls."},
+  {id:"walkies", name:"Walkies", pkg:"walkies", yt:"", status:"later",
+   text:"Raise a pup of any breed and take it on real walks. Big, clear buttons."},
+  {id:"kitchen-catastrophe", name:"Kitchen Catastrophe", pkg:"kitchencatastrophe", yt:"", status:"later",
+   text:"Cook 20 real recipes, then fight the food. A 3D kitchen adventure for young chefs."},
+  {id:"datewake", name:"DateWake", pkg:"datewake", yt:"", status:"later",
+   text:"Alarms for the exact dates you choose, with your calendar and a big clock. No ads."}
+];
+const PLAY_ICON='<svg viewBox="0 0 24 24"><path d="M4 2.6v18.8c0 .4.4.7.8.5L21 12.5c.4-.2.4-.8 0-1L4.8 2.1c-.4-.2-.8.1-.8.5Z"/></svg>';
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const tags={live:["Out now","live"],soon:["Early access soon",""],later:["Coming later",""]};
+for (const g of GAMES) {
+  const el=document.createElement("article"); el.className="card"; el.id=g.id;
+  const video = g.yt
+    ? `<button class="vid" aria-label="Play the ${esc(g.name)} trailer" data-yt="${g.yt}"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/${g.yt}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${g.yt}/mqdefault.jpg'"><span class="pl"></span></button>`
+    : `<div class="novid">Trailer coming soon</div>`;
+  const play = g.status==="live"
+    ? `<a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.spaqigames.${g.pkg}" target="_blank" rel="noopener">${PLAY_ICON}Get it on Google Play</a>`
+    : `<span class="muted">${g.status==="soon"?"Play link coming in a few days.":"Not on Play yet."}</span>`;
+  el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3>${esc(g.name)}</h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}</div></div>`;
+  document.getElementById(g.status).appendChild(el);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".vid[data-yt]"); if(!b) return;
+  const f=document.createElement("iframe");
+  f.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;
+  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen=true; f.title=b.getAttribute("aria-label");
+  b.replaceWith(f);
+});
+if (location.hash) setTimeout(()=>document.querySelector(location.hash)?.scrollIntoView(),50);
+</script>
+</body>
+</html>
