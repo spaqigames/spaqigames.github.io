@@ -55,7 +55,7 @@ const GAMES = [
    title:"Walkies – Dog Walking Game for Seniors on Android",
    genre:["Simulation","Pets","Health & fitness"],
    meta:"A dog ownership game for older adults: pick from 261 breeds, raise a pup, take it on real walks that count your steps, and meet other walkers nearby. Big, clear buttons."},
-  {id:"kitchen-catastrophe", name:"Kitchen Catastrophe", pkg:"kitchencatastrophe", yt:"", status:"later", app:false,
+  {id:"kitchen-catastrophe", name:"Kitchen Catastrophe", pkg:"kitchencatastrophe", yt:"AeeF-5wp85M", status:"later", app:false,
    title:"Kitchen Catastrophe – 3D Cooking Game for Kids on Android",
    genre:["Cooking","Action","Kids"],
    meta:"A funny 3D cooking game for kids: cook 20 real recipes with mini-games, then fight the food that comes alive. Real recipe cards to make at home. Android and Chromebook."},
