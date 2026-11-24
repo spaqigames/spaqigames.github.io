@@ -76,7 +76,7 @@ function descHtml(txt) {
     if (!line) { flush(); continue; }
     if (line.startsWith("•")) { (list ??= []).push(`<li>${esc(line.slice(1).trim())}</li>`); continue; }
     flush();
-    if (/^[A-Z0-9 ,'&!.-]+$/.test(line) && /[A-Z]{3}/.test(line)) {
+    if (/^[A-Z0-9 ,'&!./-]+$/.test(line) && /[A-Z]{3}/.test(line)) {
       const t = line.toLowerCase().replace(/^./, c => c.toUpperCase()).replace(/\bus\b/g,"US");
       out.push(`<h2>${esc(t)}</h2>`);
     } else out.push(`<p>${esc(line)}</p>`);
