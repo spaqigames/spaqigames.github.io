@@ -31,7 +31,7 @@ const GAMES = [
    title:"Eldimir & Mossback – 3D Wizard Adventure Game for Android",
    genre:["Adventure","Action"],
    meta:"A magical, funny 3D adventure for Android: an old wizard and his dog-sized snail bring the light back to an enchanted forest. 14 chapters, 5 bosses, Christian faith themes."},
-  {id:"lil-ribbit", name:"Lil' Ribbit", pkg:"lilribbit", yt:"N5pKOyZUUV8", status:"soon", app:false,
+  {id:"lil-ribbit", name:"Lil' Ribbit", pkg:"lilribbit", yt:"N5pKOyZUUV8", status:"live", app:false,
    title:"Lil' Ribbit – 3D Frog Pet Game for Kids on Android",
    genre:["Virtual pet","Casual","Kids"],
    meta:"A 3D virtual pet game for kids on Android: hatch an egg, raise a tadpole and grow your own silly frog. Your pet never dies. Pond Adventure, mini-games and 40 jokes."},
