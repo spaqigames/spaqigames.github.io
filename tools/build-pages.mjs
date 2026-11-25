@@ -39,7 +39,7 @@ const GAMES = [
    title:"Lil' Ribbit 2: The Great Giggle Heist – 3D Frog Platformer for Android",
    genre:["Platformer","Adventure","Kids"],
    meta:"A big, silly 3D frog platformer for Android: 10 worlds, 30 levels, 10 bosses and 12 hats. Rescue the tadpoles and stop Snivelwart the sneezing toad wizard."},
-  {id:"capital-quest", name:"Capital Quest", pkg:"statesandcapitals", yt:"09aeS_hQgv0", status:"soon", app:false,
+  {id:"capital-quest", name:"Capital Quest", pkg:"statesandcapitals", yt:"09aeS_hQgv0", status:"live", app:false,
    title:"Capital Quest – US State Capitals Quiz Game for Android",
    genre:["Trivia","Educational","Geography"],
    meta:"Learn all 50 US state capitals on a real map, then world capitals and flags. Daily challenge, map quiz and custom quizzes for teachers and parents. Android, works offline."},

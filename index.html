@@ -32,6 +32,7 @@ a{color:var(--accent)}
 main{max-width:1080px;margin:0 auto;padding:8px 16px 40px}
 h2{margin:2rem 0 .3rem;font-size:1.5rem}
 .sub{margin:0 0 1rem;color:var(--soft)}
+[hidden]{display:none!important}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:16px}
 .card:target{outline:3px solid var(--accent)}
@@ -68,12 +69,12 @@ footer ul{columns:2 220px;padding-left:1.1rem;margin:.4rem 0 1rem}
   <p class="sub">Free to play, with one purchase to remove the ads.</p>
   <div class="grid" id="live"></div>
 
-  <h2>Early access, coming in the next few days</h2>
-  <p class="sub">In review at Google Play now. Watch the trailers, and subscribe on YouTube to hear when they're out.</p>
+  <h2 data-for="soon">Early access, coming in the next few days</h2>
+  <p class="sub" data-for="soon">In review at Google Play now. Watch the trailers, and subscribe on YouTube to hear when they're out.</p>
   <div class="grid" id="soon"></div>
 
-  <h2>In the works</h2>
-  <p class="sub">Finished games still in testing.</p>
+  <h2 data-for="later">In the works</h2>
+  <p class="sub" data-for="later">Finished games still in testing.</p>
   <div class="grid" id="later"></div>
 
   <footer>
@@ -131,7 +132,7 @@ const GAMES = [
    text:"Hatch an egg, raise a tadpole and grow a very silly 3D frog of your own. Made for kids."},
   {id:"lil-ribbit-2", name:"Lil' Ribbit 2", pkg:"lilribbit2", yt:"hKwjEPnQjnY", status:"live",
    text:"A giant 3D frog platformer: 10 worlds, 30 levels and 10 big silly bosses."},
-  {id:"capital-quest", name:"Capital Quest", pkg:"statesandcapitals", yt:"09aeS_hQgv0", status:"soon",
+  {id:"capital-quest", name:"Capital Quest", pkg:"statesandcapitals", yt:"09aeS_hQgv0", status:"live",
    text:"Learn all 50 state capitals on a real map, then take on the world's capitals. Custom quizzes for teachers and parents."},
   {id:"birdwatch", name:"Songbird Safari", pkg:"birdwatch", yt:"T767CXsbol0", status:"later",
    text:"Relax in 3D nature, find 62 real bird species and hear their real songs. Fall asleep to evening birdsong and wake up to a dawn chorus."},
@@ -158,6 +159,8 @@ for (const g of GAMES) {
   el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3><a href="${g.id}/">${esc(g.name)}</a></h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}<a class="muted" href="${g.id}/">More about ${esc(g.name)} →</a></div></div>`;
   document.getElementById(g.status).appendChild(el);
 }
+for (const id of ["soon","later"]) if (!document.getElementById(id).children.length)
+  document.querySelectorAll(`#${id},[data-for="${id}"]`).forEach(e=>e.hidden=true);
 document.addEventListener("click",e=>{
   const b=e.target.closest(".vid[data-yt]"); if(!b) return;
   const f=document.createElement("iframe");
