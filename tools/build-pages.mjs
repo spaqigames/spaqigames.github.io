@@ -96,6 +96,8 @@ function descHtml(txt) {
 const playUrl = g => `https://play.google.com/store/apps/details?id=com.spaqigames.${g.pkg}`;
 const statusText = {live:"Out now on Google Play", soon:"Early access on Google Play very soon", later:"Coming to Google Play later"};
 const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .4.4.7.8.5L21 12.5c.4-.2.4-.8 0-1L4.8 2.1c-.4-.2-.8.1-.8.5Z"/></svg>';
+const BETA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v2h-1v5.2l5.6 9.7A2 2 0 0 1 17.9 22H6.1a2 2 0 0 1-1.7-3.1L10 9.2V4H9Zm3 9.6L8.5 17h7Z"/></svg>';
+const betaHref = g => "mailto:SpaqiGames@gmail.com?subject=" + encodeURIComponent(`Beta tester: ${g.name}`) + "&amp;body=" + encodeURIComponent(`Hi SpaqiGames,\n\nI'd like to beta test ${g.name}.\n\nThe Google account email I use on the Play Store (needed to add me as a tester):\n\nMy device (phone/tablet model, optional):\n\nThanks!`);
 const YT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8ZM9.7 15.1V8.9l5.8 3.1Z"/></svg>';
 
 const CSS = `:root{--bg:#f4f8f2;--card:#fff;--ink:#1d2a1f;--soft:#56655a;--line:#dbe5d8;--accent:#2f8f3a;--accent-ink:#fff;--soon:#b86b00;--soon-bg:#fff2dd;--yt:#d62828}
@@ -117,6 +119,8 @@ h1{margin:0;font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.2}
 .btn svg{width:18px;height:18px;fill:currentColor}
 .btn-play{background:var(--accent);color:var(--accent-ink)}
 .btn-yt{background:var(--yt);color:#fff}
+.btn-beta{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.beta-note{margin:.6rem 0 0;font-size:.92rem;color:var(--soft)}
 .vid{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;padding:0;width:100%;display:block;border-radius:14px;overflow:hidden}
 .vid img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
 .vid .pl{position:absolute;inset:0;margin:auto;width:72px;height:50px;border-radius:12px;background:var(--yt);display:grid;place-items:center}
@@ -165,7 +169,8 @@ function page(g) {
     {"@type":"ListItem",position:2,name:g.name,item:url}]};
   const btn = g.status==="live"
     ? `<a class="btn btn-play" href="${playUrl(g)}" rel="noopener">${PLAY_ICON}Get it on Google Play</a>`
-    : "";
+    : `<a class="btn btn-beta" href="${betaHref(g)}">${BETA_ICON}Become a beta tester</a>`;
+  const betaNote = g.status==="live" ? "" : `<p class="beta-note">Want to play ${esc(g.name)} before it's out? Tap <b>Become a beta tester</b> and send us the Google account you use on the Play Store. We'll add you to the test and email you the link.</p>`;
   const video = g.yt
     ? `<button class="vid" aria-label="Play the ${esc(g.name)} trailer" data-yt="${g.yt}"><img alt="${esc(g.name)} trailer" src="https://i.ytimg.com/vi/${g.yt}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${g.yt}/hqdefault.jpg'"><span class="pl"></span></button>`
     : "";
@@ -199,6 +204,7 @@ function page(g) {
 <span class="tag ${g.status==="live"?"live":""}">${statusText[g.status]}</span>
 </div></div>
 <div class="acts">${btn}<a class="btn btn-yt" href="${YT_CHANNEL}?sub_confirmation=1" rel="noopener">${YT_ICON}${g.status==="live"?"More on YouTube":"Get notified on YouTube"}</a></div>
+${betaNote}
 ${video}
 <div class="shots${tall?" tall":""}">
 ${shots.map((f,i) => `<img src="../img/${g.id}/${f}" alt="${esc(g.name)} screenshot ${i+1}" width="${dims[i].w}" height="${dims[i].h}" loading="lazy">`).join("\n")}
