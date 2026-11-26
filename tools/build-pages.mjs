@@ -97,6 +97,7 @@ const playUrl = g => `https://play.google.com/store/apps/details?id=com.spaqigam
 const statusText = {live:"Out now on Google Play", soon:"Early access on Google Play very soon", later:"Coming to Google Play later"};
 const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .4.4.7.8.5L21 12.5c.4-.2.4-.8 0-1L4.8 2.1c-.4-.2-.8.1-.8.5Z"/></svg>';
 const BETA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v2h-1v5.2l5.6 9.7A2 2 0 0 1 17.9 22H6.1a2 2 0 0 1-1.7-3.1L10 9.2V4H9Zm3 9.6L8.5 17h7Z"/></svg>';
+const testHref = g => `https://play.google.com/apps/testing/com.spaqigames.${g.pkg}`; // Play closed-test opt-in: works once the tester's Google account is on the list
 const betaHref = g => "mailto:SpaqiGames@gmail.com?subject=" + encodeURIComponent(`Beta tester: ${g.name}`) + "&amp;body=" + encodeURIComponent(`Hi SpaqiGames,\n\nI'd like to beta test ${g.name}.\n\nThe Google account email I use on the Play Store (needed to add me as a tester):\n\nMy device (phone/tablet model, optional):\n\nThanks!`);
 const YT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8ZM9.7 15.1V8.9l5.8 3.1Z"/></svg>';
 
@@ -169,8 +170,8 @@ function page(g) {
     {"@type":"ListItem",position:2,name:g.name,item:url}]};
   const btn = g.status==="live"
     ? `<a class="btn btn-play" href="${playUrl(g)}" rel="noopener">${PLAY_ICON}Get it on Google Play</a>`
-    : `<a class="btn btn-beta" href="${betaHref(g)}">${BETA_ICON}Become a beta tester</a>`;
-  const betaNote = g.status==="live" ? "" : `<p class="beta-note">Want to play ${esc(g.name)} before it's out? Tap <b>Become a beta tester</b> and send us the Google account you use on the Play Store. We'll add you to the test and email you the link.</p>`;
+    : `<a class="btn btn-beta" href="${betaHref(g)}">${BETA_ICON}Become a beta tester</a><a class="btn btn-beta" href="${testHref(g)}" rel="noopener">${PLAY_ICON}Install the beta</a>`;
+  const betaNote = g.status==="live" ? "" : `<p class="beta-note">Want to play ${esc(g.name)} before it's out? Tap <b>Become a beta tester</b> and send us the Google account you use on the Play Store. Once you're accepted, tap <b>Install the beta</b> (signed in with that same Google account) to join the test and install ${esc(g.name)} from Google Play. Until we've added you, that link will say the app isn't available.</p>`;
   const video = g.yt
     ? `<button class="vid" aria-label="Play the ${esc(g.name)} trailer" data-yt="${g.yt}"><img alt="${esc(g.name)} trailer" src="https://i.ytimg.com/vi/${g.yt}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${g.yt}/hqdefault.jpg'"><span class="pl"></span></button>`
     : "";
