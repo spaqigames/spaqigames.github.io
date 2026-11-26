@@ -159,6 +159,7 @@ const PLAY_ICON='<svg viewBox="0 0 24 24"><path d="M4 2.6v18.8c0 .4.4.7.8.5L21 1
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 const BETA_ICON='<svg viewBox="0 0 24 24"><path d="M9 2h6v2h-1v5.2l5.6 9.7A2 2 0 0 1 17.9 22H6.1a2 2 0 0 1-1.7-3.1L10 9.2V4H9Zm3 9.6L8.5 17h7Z"/></svg>';
 const betaHref=g=>"mailto:SpaqiGames@gmail.com?subject="+encodeURIComponent("Beta tester: "+g.name)+"&body="+encodeURIComponent("Hi SpaqiGames,\n\nI'd like to beta test "+g.name+".\n\nThe Google account email I use on the Play Store (needed to add me as a tester):\n\nMy device (phone/tablet model, optional):\n\nThanks!");
+const GROUP="https://groups.google.com/g/spaqigames"; // the beta testers' Google Group: joining it is what lets Play's closed tests accept them (all beta games)
 const testHref=g=>"https://play.google.com/apps/testing/com.spaqigames."+g.pkg; // Play closed-test opt-in: works once the tester's Google account is on the list
 const tags={live:["Out now","live"],soon:["Early access soon",""],later:["Coming later",""]};
 for (const g of GAMES) {
@@ -168,8 +169,8 @@ for (const g of GAMES) {
     : `<div class="novid">Trailer coming soon</div>`;
   const play = g.status==="live"
     ? `<a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.spaqigames.${g.pkg}" target="_blank" rel="noopener">${PLAY_ICON}Get it on Google Play</a>`
-    : `<a class="btn btn-beta" href="${betaHref(g)}">${BETA_ICON}Become a beta tester</a>`;
-  el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3><a href="${g.id}/">${esc(g.name)}</a></h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}<a class="muted" href="${g.id}/">More about ${esc(g.name)} →</a></div>${g.status==="live" ? "" : `<p class="beta-link">Accepted as a tester? <a href="${testHref(g)}" target="_blank" rel="noopener">Install the beta →</a></p>`}</div>`;
+    : `<a class="btn btn-beta" href="${GROUP}" target="_blank" rel="noopener">${BETA_ICON}Become a beta tester</a>`;
+  el.innerHTML = `${video}<div class="body"><div class="head"><img src="img/${g.id}.png" alt=""><div><h3><a href="${g.id}/">${esc(g.name)}</a></h3><span class="tag ${tags[g.status][1]}">${tags[g.status][0]}</span></div></div><p>${esc(g.text)}</p><div class="acts">${play}<a class="muted" href="${g.id}/">More about ${esc(g.name)} →</a></div>${g.status==="live" ? "" : `<p class="beta-link">Joined the beta group? <a href="${testHref(g)}" target="_blank" rel="noopener">Install the beta →</a></p>`}</div>`;
   document.getElementById(g.status).appendChild(el);
 }
 for (const id of ["soon","later"]) if (!document.getElementById(id).children.length)
