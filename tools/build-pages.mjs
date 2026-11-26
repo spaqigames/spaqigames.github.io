@@ -63,7 +63,7 @@ const GAMES = [
    title:"Petalwing – Butterfly Pet Game for Kids on Android",
    genre:["Simulation","Pets","Educational","Kids"],
    meta:"Raise a real butterfly from egg to caterpillar, chrysalis and wings. 8 real species, 8 gardens, 6 mini-games and real butterfly facts. A gentle 3D pet game for kids on Android."},
-  {id:"prism-wings", name:"Prism Wings", pkg:"prismwings", yt:"", status:"soon", app:false,
+  {id:"prism-wings", name:"Prism Wings", pkg:"prismwings", yt:"qUpbmqtMbBU", status:"soon", app:false,
    title:"Prism Wings – Butterfly Rail Shooter Game for Android",
    genre:["Action","Shooter","Arcade","Fantasy"],
    meta:"A magical 3D rail-flight shooter: fly a butterfly through 10 realms and 20 levels, lock on with homing darts, cast colourful spells and beat 10 bosses. Controller support."},
