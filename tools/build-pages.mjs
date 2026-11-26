@@ -59,7 +59,7 @@ const GAMES = [
    title:"Kitchen Catastrophe – 3D Cooking Game for Kids on Android",
    genre:["Cooking","Action","Kids"],
    meta:"A funny 3D cooking game for kids: cook 20 real recipes with mini-games, then fight the food that comes alive. Real recipe cards to make at home. Android and Chromebook."},
-  {id:"petalwing", name:"Petalwing: My Butterfly Garden", pkg:"petalwing", yt:"", status:"soon", app:false,
+  {id:"petalwing", name:"Petalwing: My Butterfly Garden", pkg:"petalwing", yt:"hTV5OB6ZlBM", status:"soon", app:false,
    title:"Petalwing – Butterfly Pet Game for Kids on Android",
    genre:["Simulation","Pets","Educational","Kids"],
    meta:"Raise a real butterfly from egg to caterpillar, chrysalis and wings. 8 real species, 8 gardens, 6 mini-games and real butterfly facts. A gentle 3D pet game for kids on Android."},
