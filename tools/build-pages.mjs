@@ -67,7 +67,7 @@ const GAMES = [
    title:"Prism Wings – Butterfly Rail Shooter Game for Android",
    genre:["Action","Shooter","Arcade","Fantasy"],
    meta:"A magical 3D rail-flight shooter: fly a butterfly through 10 realms and 20 levels, lock on with homing darts, cast colourful spells and beat 10 bosses. Controller support."},
-  {id:"datewake", name:"DateWake", pkg:"datewake", yt:"", status:"later", app:true, category:"UtilitiesApplication",
+  {id:"datewake", name:"DateWake", pkg:"datewake", yt:"VHJtuRPDDC8", status:"later", app:true, category:"UtilitiesApplication",
    title:"DateWake – Alarm Clock for Specific Dates, with Calendar",
    genre:["Productivity","Alarm clock","Calendar"],
    meta:"An Android alarm clock that rings at different times on different dates: shifts, flights, every-other-week trash day. Calendar, birthdays, holidays. No ads, no tracking."},
